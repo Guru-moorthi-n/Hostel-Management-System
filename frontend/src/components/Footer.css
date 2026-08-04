@@ -1,0 +1,14 @@
+.hms-footer {
+    width: 100%;
+    padding: 0px 16px;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--muted-foreground);
+    background: transparent;
+}
+
+.hms-footer strong {
+    font-weight: 600;
+    color: var(--foreground);
+}

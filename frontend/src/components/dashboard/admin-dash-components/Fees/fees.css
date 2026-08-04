@@ -1,0 +1,495 @@
+.fee-page {
+    padding: 1px;
+}
+
+.fee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.fee-header h1 {
+    font-size: 30px;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+.fee-header p {
+    font-size: 14px;
+    color: var(--muted-foreground);
+}
+
+.add-fee-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fee-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.fee-tab {
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--main-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.fee-tab.active {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+
+.fee-main-layout {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    gap: 24px;
+    align-items: start;
+}
+
+.fee-table {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fee-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fee-table th {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.fee-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.fee-status {
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fee-status.pending {
+    background: #fff3cd;
+    color: #b76e00;
+}
+
+.fee-status.partial {
+    background: #e7f0ff;
+    color: #1d4ed8;
+}
+
+.fee-status.paid {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.fee-table-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fee-table thead {
+    background: var(--card);
+}
+
+.fee-table th {
+    padding: 18px 20px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+}
+
+.fee-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.selected-student {
+    background: var(--background-secondary);
+}
+
+.fee-student {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.fee-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--background-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--muted-foreground);
+}
+
+.fee-student h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.fee-student span {
+    font-size: 13px;
+    color: var(--muted-foreground);
+}
+
+.fee-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.fee-badge.pending {
+    color: #ff831e;
+}
+
+.fee-badge.partial {
+    color: var(--primary);
+}
+
+.fee-badge.paid {
+    color: #16A34A;
+}
+
+.fee-more-btn {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--main-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.fee-details {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.fee-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.close-details {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--main-color);
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.student-avatar-large {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--background-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: var(--muted-foreground);
+}
+
+.student-info h3 {
+    margin-bottom: 6px;
+}
+
+.student-info p {
+    color: var(--muted-foreground);
+    font-size: 13px;
+}
+
+.fee-section-title {
+    padding: 20px 20px 10px;
+    font-size: 18px;
+}
+
+.breakdown-table {
+    width: calc(100% - 40px);
+    margin: 0 20px 20px;
+    border-collapse: collapse;
+}
+
+.breakdown-table td {
+    border: 1px solid var(--border);
+    padding: 12px;
+}
+
+.total-row {
+    font-weight: 600;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 20px 20px;
+}
+
+.summary-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.summary-card span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--muted-foreground);
+    font-size: 13px;
+}
+
+.paid {
+    color: #16A34A;
+}
+
+.balance {
+    color: #DC2626;
+}
+
+.payment-table {
+    width: calc(100% - 40px);
+    margin: 0 20px 20px;
+    border-collapse: collapse;
+}
+
+.fee-action-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+}
+
+.fee-action-bar button {
+    border: none;
+    background: var(--card);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+    border-right: 1px solid var(--border);
+}
+
+.fee-action-bar button:last-child {
+    border-right: none;
+}
+
+.fee-action-bar i {
+    font-size: 18px;
+}
+
+.fee-action-bar span {
+    font-size: 13px;
+    color: var(--main-color);
+}
+
+.breakdown-table th {
+    background: var(--background-secondary);
+    padding: 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+.breakdown-table td {
+    border: 1px solid var(--border);
+    padding: 12px;
+}
+
+.breakdown-table td:last-child,
+.breakdown-table th:last-child {
+    text-align: right;
+}
+
+.fee-table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+}
+
+.fee-pagination {
+    display: flex;
+    gap: 8px;
+    
+}
+
+.fee-pagination button {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 8px;
+    color: var(--main-color);
+}
+
+.fee-pagination .active {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.fee-action-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--border);
+}
+
+.fee-action-bar button {
+    background: none;
+    border: none;
+    border-right: 1px solid var(--border);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.fee-action-bar button:last-child {
+    border-right: none;
+}
+
+.fee-action-bar i {
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.fee-action-bar span {
+    font-size: 13px;
+}
+
+.fee-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.fee-empty i {
+    font-size: 60px;
+    margin-bottom: 18px;
+    color: var(--primary);
+}
+
+.fee-empty h3 {
+    margin-bottom: 10px;
+}
+
+.fee-empty p {
+    color: var(--muted-foreground);
+}
+
+.payment-history {
+    margin-top: 20px;
+}
+
+.empty-history {
+    padding: 20px;
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    text-align: center;
+    color: var(--muted-foreground);
+}
+
+.payment-history-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 12px;
+    background: var(--card);
+}
+
+.payment-history-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.payment-history-top h4 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--main-color);
+}
+
+.payment-history-top span {
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--background);
+    font-size: 13px;
+}
+
+.payment-history-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.payment-history-body p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted-foreground);
+}
+
+.fee-pagination button:disabled{
+    opacity:0.4;
+    cursor:not-allowed;
+}

@@ -1,0 +1,497 @@
+.notice-page {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notice-header h1 {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+.notice-header p {
+    margin-top: 4px;
+    color: var(--muted-foreground);
+}
+
+.add-notice-btn {
+    height: 44px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.notice-tabs {
+    display: flex;
+    gap: 12px;
+}
+
+.notice-tabs button {
+    height: 40px;
+    padding: 0 22px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--main-color);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.notice-tabs button.active {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+}
+
+.notice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.notice-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.notice-pin {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(79, 70, 229, .10);
+    color: var(--primary);
+    font-size: 15px;
+}
+
+.notice-Icon {
+    width: max-content;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(79, 70, 229, .08);
+    color: var(--primary);
+    font-size: 22px;
+    padding-left: 10px;
+}
+
+.notice-card h3 {
+    font-size: 20px;
+    color: var(--main-color);
+    line-height: 1.4;
+}
+
+.notice-type {
+    width: max-content;
+    padding: 6px 14px;
+    border-radius: 10px;
+    color: var(--muted-foreground);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.notice-card p {
+    color: var(--muted-foreground);
+    line-height: 1.7;
+    font-size: 14px;
+    flex: 1;
+}
+
+.notice-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.notice-date {
+    font-size: 13px;
+    color: var(--muted-foreground);
+}
+
+.notice-read {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.notice-empty {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 70px;
+    text-align: center;
+    color: var(--muted-foreground);
+}
+
+.notice-modal {
+    width: 600px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 26px;
+}
+
+.notice-modal h2 {
+    margin-bottom: 25px;
+    color: var(--main-color);
+}
+
+.notice-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.notice-form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+.notice-form-group input,
+.notice-form-group select,
+.notice-form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--main-color);
+    padding: 12px 14px;
+    outline: none;
+    font-size: 14px;
+}
+
+.notice-form-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.notice-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.notice-checkbox label {
+    color: var(--main-color);
+}
+
+.notice-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.notice-details {
+    width: 720px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+}
+
+.notice-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.notice-details-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(79, 70, 229, .08);
+    color: var(--primary);
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.notice-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.notice-info-grid label {
+    font-size: 13px;
+    color: var(--muted-foreground);
+}
+
+.notice-info-grid p {
+    margin-top: 6px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+.notice-description {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.notice-description h3 {
+    margin-bottom: 14px;
+}
+
+.notice-description p {
+    line-height: 1.8;
+    color: var(--muted-foreground);
+}
+
+.notice-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.edit-btn,
+.delete-btn {
+    min-width: 120px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--card);
+}
+
+.edit-btn {
+    color: var(--primary);
+}
+
+.delete-btn {
+    color: #dc2626;
+}
+
+.notice-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.notice-details {
+    width: 720px;
+    max-width: 92vw;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    position: relative;
+}
+
+.notice-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+    background: var(--muted);
+    color: var(--main-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-notice-modal {
+    width: 850px;
+    max-height: 85vh;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.student-notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.student-notice-header p {
+    color: var(--muted-foreground);
+    margin-top: 6px;
+}
+
+.student-notice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.student-notice-item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.student-notice-item:hover {
+    border-color: var(--primary);
+}
+
+.student-notice-item.pinned {
+    border-left: 4px solid var(--primary);
+}
+
+.student-notice-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.student-notice-item h4 {
+    font-size: 16px;
+}
+
+.student-notice-item p {
+    color: var(--muted-foreground);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.student-notice-item small {
+    color: var(--muted-foreground);
+}
+
+/* Mobile Screen - Student */
+@media (max-width:768px) {
+    .notice-overlay {
+        padding: 14px;
+    }
+
+    .student-notice-modal {
+        width: 100%;
+        max-width: none;
+        height: 90vh;
+        max-height: 90vh;
+
+        padding: 18px;
+
+        border-radius: 14px;
+    }
+
+    .student-notice-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+
+        margin-bottom: 18px;
+    }
+
+    .student-notice-header h2 {
+        font-size: 24px;
+    }
+
+    .student-notice-header p {
+        font-size: 13px;
+    }
+
+    .student-notice-header .student-outline-btn {
+        width: 100%;
+    }
+
+    .student-notice-list {
+        flex: 1;
+        gap: 12px;
+        padding-right: 0;
+    }
+
+    .student-notice-item {
+        padding: 16px;
+    }
+
+    .student-notice-title {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .student-notice-item h4 {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .student-notice-item p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .student-notice-item small {
+        display: block;
+        margin-top: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width:480px) {
+    .notice-overlay {
+        padding: 0;
+    }
+
+    .student-notice-modal {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        padding: 16px;
+    }
+}

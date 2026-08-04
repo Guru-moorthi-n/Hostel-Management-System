@@ -1,0 +1,103 @@
+.payment-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.payment-modal {
+    width: 540px;
+    max-width: 95%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.payment-modal h2 {
+    margin: 0;
+    font-size: 22px;
+    color: var(--main-color);
+}
+
+.payment-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.payment-summary div {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted-foreground);
+}
+
+.payment-summary strong {
+    font-size: 18px;
+    color: var(--main-color);
+}
+
+.payment-modal label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: -8px;
+}
+
+.payment-modal input,
+.payment-modal select,
+.payment-modal textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--main-color);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.payment-modal textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.payment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.payment-actions button {
+    min-width: 140px;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.payment-actions button:first-child {
+    background: var(--card);
+    color: var(--main-color);
+    border: 1px solid var(--border);
+}
+
+.payment-actions button:last-child {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+}

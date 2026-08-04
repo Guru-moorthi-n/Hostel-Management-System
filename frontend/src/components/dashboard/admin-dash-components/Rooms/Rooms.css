@@ -1,0 +1,372 @@
+.rooms-page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rooms-page-title h1 {
+  font-size: 30px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: var(--main-color);
+}
+
+.rooms-page-title p {
+  color: var(--muted-foreground);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.add-room-btn {
+  padding: 12px 18px;
+  border: none;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.rooms-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.room-stat-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.room-stat-card h2 {
+  margin-top: 10px;
+  font-size: 32px;
+}
+
+.rooms-filter-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 18px;
+}
+
+.rooms-filter-container input,
+.rooms-filter-container select {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--foreground);
+  border-radius: 10px;
+  outline: none;
+}
+
+.rooms-filter-container input:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(100, 100, 255, 0.15);
+}
+
+.reset-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  border-radius: 10px;
+  padding: 12px 20px;
+}
+
+.rooms-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.premium-room-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--foreground);
+}
+
+.room-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.room-card-header p {
+  color: var(--muted-foreground);
+  margin-top: 6px;
+}
+
+.room-badge {
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  height: fit-content;
+  font-weight: 600;
+}
+
+.room-badge.available {
+  color: #16A34A;
+}
+
+.room-badge.full {
+  color: #DC2626;
+}
+
+.room-badge.maintenance {
+  color: #ff831e;
+}
+
+.room-card-body {
+  margin-top: 25px;
+}
+
+.room-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  margin-top: 15px;
+  height: 8px;
+  background: #eee;
+  border-radius: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 20px;
+}
+
+.progress-fill.available {
+  background: #16A34A;
+}
+
+.progress-fill.full {
+  background: #DC2626;
+}
+
+.progress-fill.maintenance {
+  background: #ff831e;
+}
+
+.room-action-btn {
+  margin-top: 18px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--main-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rooms-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  color: var(--main-color);
+}
+
+.active-page {
+  background: var(--primary) !important;
+  color: var(--primary-foreground);
+}
+
+/* More Actions Model in Room page */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.room-actions-modal {
+  width: 420px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.room-actions-modal h3 {
+  margin-bottom: 22px;
+  color: var(--main-color);
+}
+
+.room-actions-modal button {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: none;
+  background: var(--background);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.room-actions-modal i {
+  margin-right: 12px;
+}
+
+.cancel-room-btn {
+  color: red !important;
+}
+
+/* Add New Room Model */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.room-form-modal {
+  width: 520px;
+  background: var(--card,);
+  color: var(--main-color);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.room-form-modal h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.room-form-modal input,
+.room-form-modal select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--input);
+  color: var(--main-color);
+  outline: none;
+}
+
+.room-form-modal input:focus,
+.room-form-modal select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(100, 100, 255, 0.15);
+}
+
+.room-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.room-form-actions button:first-child {
+  padding: 12px 22px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--main-color);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.room-form-actions button:last-child {
+  padding:12px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--destructive);
+  background-color: var(--card);
+}
+
+.save-room-btn {
+  color: #16a34a !important;
+}
+
+.room-student-list{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:20px;
+max-height:400px;
+overflow-y:auto;
+}
+
+.room-student-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    border:1px solid var(--border);
+    border-radius:10px;
+}
+
+.room-student-actions{
+    display:flex;
+    gap:10px;
+}
+
+.view-profile-btn{
+    padding:10px 14px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    cursor:pointer;
+    background: var(--card);
+    color:var(--main-color);
+    font-weight: 600;
+}
+
+.remove-room-btn-small{
+    padding:10px 14px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    cursor:pointer;
+    background: var(--card);
+    color: #ef4444;
+    font-weight: 600;
+}
