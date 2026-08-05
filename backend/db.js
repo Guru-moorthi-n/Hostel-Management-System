@@ -10,10 +10,8 @@ const db = new pg.Client({
 
     ssl:
         process.env.NODE_ENV === "production"
-            ? {
-                rejectUnauthorized: false,
-            }
-            : false,
+            ? { rejectUnauthorized: false}
+            : false
 });
 
 await db.connect();
