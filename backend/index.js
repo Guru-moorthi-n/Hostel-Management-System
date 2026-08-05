@@ -18,7 +18,7 @@ const limiter = rateLimit({
         message: "Too many requests. Please try again later."
     }
 });
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(helmet());
 app.use(compression());
@@ -2564,5 +2564,5 @@ app.put("/api/notifications/read-all/:userId", async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`)
+    console.log(`Server is running on port ${port}`)
 });
