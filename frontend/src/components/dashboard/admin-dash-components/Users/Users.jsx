@@ -6,6 +6,7 @@ import UsersFilters from "./UsersFilters";
 import UsersTable from "./UsersTable";
 import DeleteUserModal from "./DeleteUserModal";
 import API from "../../../../config/api.js";
+import { useToast } from "../../../ToastContext.jsx";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -17,6 +18,7 @@ function Users() {
   const [selectedUser, setSelectedUser] = useState(null);
 
   const role = localStorage.getItem("role");
+  const { showToast } = useToast();
 
   function openDeleteModal(user) {
     setSelectedUser(user);
@@ -41,7 +43,7 @@ function Users() {
       const data = await response.json();
 
       if (!data.success) {
-        alert(data.message);
+        showToast("success", data.message, "");
         return;
       }
 
@@ -49,7 +51,7 @@ function Users() {
         previousUsers.filter((user) => user.id !== selectedUser.id),
       );
 
-      alert(data.message);
+      showToast("success", data.message, "");
 
       setShowDeleteModal(false);
     } catch (error) {
