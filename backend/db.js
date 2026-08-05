@@ -1,7 +1,7 @@
 import pg from "pg";
 import "dotenv/config";
 
-const db = new pg.Client({
+const db = new pg.Pool({
     user: process.env.DB_USERNAME,
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
@@ -14,7 +14,9 @@ const db = new pg.Client({
             : false
 });
 
-await db.connect();
+db.on("error", (err) => {
+    console.error("Unexpected database error:", err);
+});
 
 console.log("Database Connected.")
 

@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useToast } from "../../../ToastContext.jsx";
 import API from "../../../../config/api.js"
 
 function RaiseComplaintModal({ onClose, refreshComplaints }) {
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -28,7 +30,7 @@ function RaiseComplaintModal({ onClose, refreshComplaints }) {
       !formData.category ||
       !formData.description.trim()
     ) {
-      alert("Please fill all required fields.");
+      showToast("error", "", "Please fill all required fields.");
       return;
     }
 
@@ -49,7 +51,7 @@ function RaiseComplaintModal({ onClose, refreshComplaints }) {
 
       const data = await response.json();
 
-      alert(data.message);
+      showToast("success", data.message, "");
 
       if (data.success) {
         refreshComplaints();
@@ -57,7 +59,7 @@ function RaiseComplaintModal({ onClose, refreshComplaints }) {
       }
     } catch (error) {
       console.log(error);
-      alert("Something went wrong.");
+      showToast("error", "Something went wrong.", "");
     }
 
     setLoading(false);

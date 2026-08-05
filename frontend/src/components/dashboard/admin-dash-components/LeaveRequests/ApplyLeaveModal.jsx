@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "../../dashboard.css";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function ApplyLeaveModal({ onClose, refreshLeaves }) {
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({
     leave_type: "",
     from_date: "",
@@ -21,7 +23,6 @@ function ApplyLeaveModal({ onClose, refreshLeaves }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     setLoading(true);
 
     try {
@@ -42,7 +43,7 @@ function ApplyLeaveModal({ onClose, refreshLeaves }) {
         refreshLeaves();
         onClose();
       } else {
-        alert(data.message);
+        showToast("error", data.message, "");
       }
     } catch (error) {
       console.log(error);
