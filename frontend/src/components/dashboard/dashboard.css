@@ -577,36 +577,36 @@ td {
   color: var(--primary);
 }
 
-.dashboard-table-scroll{
-    height:300px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    scrollbar-width:thin;
-    scrollbar-color:rgba(130, 130, 130, 0.057) transparent;
+.dashboard-table-scroll {
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(130, 130, 130, 0.057) transparent;
 }
 
-.dashboard-table-scroll::-webkit-scrollbar{
-    width:4px;
+.dashboard-table-scroll::-webkit-scrollbar {
+  width: 4px;
 }
 
-.dashboard-table-scroll::-webkit-scrollbar-track{
-    background:transparent;
+.dashboard-table-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.dashboard-table-scroll::-webkit-scrollbar-thumb{
-    background:var(--border);
-    border-radius:999px;
+.dashboard-table-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
 }
 
-.dashboard-table-scroll::-webkit-scrollbar-thumb:hover{
-    background:var(--muted-foreground);
+.dashboard-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
 }
 
-.dashboard-table-scroll thead{
-    position:sticky;
-    top:0;
-    background:var(--card);
-    z-index:2;
+.dashboard-table-scroll thead {
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  z-index: 2;
 }
 
 /* Student dashboard */
@@ -1411,19 +1411,65 @@ td {
   }
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-    .notification-overlay{
-        justify-content:center;
-        align-items:center;
-        padding:12px;
-    }
+  .notification-overlay {
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+  }
 
-    .notification-modal{
-        width:100%;
-        height:90vh;
-        margin:0;
-        border-radius:14px;
-    }
+  .notification-modal {
+    width: 100%;
+    height: 90vh;
+    margin: 0;
+    border-radius: 14px;
+  }
 
+}
+
+.dashboard-mobile-block {
+  display: none;
+}
+
+@media (max-width:768px) {
+
+  .desktop-dashboard {
+    display: none;
+  }
+
+  .dashboard-mobile-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 24px;
+    background: var(--main-background);
+  }
+
+  .dashboard-mobile-message {
+    text-align: center;
+    max-width: 320px;
+  }
+
+  .dashboard-mobile-message i {
+    font-size: 46px;
+    color: var(--primary);
+    margin-bottom: 18px;
+  }
+
+  .dashboard-mobile-message h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .dashboard-mobile-message p {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+  }
 }
