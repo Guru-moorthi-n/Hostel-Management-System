@@ -2,10 +2,12 @@ import "./profile.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function StudentProfile() {
   const role = localStorage.getItem("role");
   const isStudent = role === "student";
+  const { showToast } = useToast();
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -41,9 +43,7 @@ function StudentProfile() {
 
     async function fetchAvailableRooms() {
       try {
-        const response = await fetch(
-          `${API}/api/available-rooms`,
-        );
+        const response = await fetch(`${API}/api/available-rooms`);
 
         const data = await response.json();
 
@@ -69,7 +69,7 @@ function StudentProfile() {
 
   const handleSaveStudent = async () => {
     if (!studentData.register_number || !studentData.department) {
-      alert("Complete student profile first");
+      showToast("error", "Complete student profile first", "");
       return;
     }
     try {
@@ -99,7 +99,7 @@ function StudentProfile() {
       const data = await response.json();
 
       if (!data.success) {
-        alert(data.message);
+        showToast("success", data.message, "");
         return;
       }
 
@@ -123,12 +123,12 @@ function StudentProfile() {
         const roomData = await roomResponse.json();
 
         if (!roomData.success) {
-          alert("Room assignment failed");
+          showToast("error", "Room assignment failed.", "");
           return;
         }
       }
 
-      alert("Student saved successfully");
+      showToast("success", "Student saved successfully", "");
       window.location.reload();
       setOriginalData(studentData);
       setEditMode(false);
@@ -143,22 +143,19 @@ function StudentProfile() {
     );
     if (!confirmRemove) return;
     try {
-      const response = await fetch(
-        `${API}/api/remove-room-assignment`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify({
-            user_id: id,
-          }),
+      const response = await fetch(`${API}/api/remove-room-assignment`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+
+        body: JSON.stringify({
+          user_id: id,
+        }),
+      });
 
       const data = await response.json();
-      alert(data.message);
+      showToast("success", data.message, "");
 
       if (data.success) {
         const refresh = await fetch(`${API}/api/student/${id}`);
