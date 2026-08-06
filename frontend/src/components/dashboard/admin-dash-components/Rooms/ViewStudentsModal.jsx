@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext.jsx"
 
 function ViewStudentsModal({ room, setShowViewStudentsModal }) {
   const [students, setStudents] = useState([]);
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   useEffect(() => {
     fetchStudents();
@@ -40,7 +42,7 @@ function ViewStudentsModal({ room, setShowViewStudentsModal }) {
     );
 
     const data = await response.json();
-    alert(data.message);
+    showToast("success", data.message, "");
     if (data.success) {
       fetchStudents();
     }

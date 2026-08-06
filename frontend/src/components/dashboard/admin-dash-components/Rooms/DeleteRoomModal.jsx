@@ -1,9 +1,11 @@
 import { useState } from "react";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function DeleteRoomModal({ room, setShowDeleteModal, fetchRooms }) {
   const [password, setPassword] = useState("");
   const adminUsername = localStorage.getItem("username");
+  const { showToast } = useToast();
 
   async function handleDelete() {
     const response = await fetch(`${API}/api/delete-room`, {
@@ -20,7 +22,7 @@ function DeleteRoomModal({ room, setShowDeleteModal, fetchRooms }) {
     });
 
     const data = await response.json();
-    alert(data.message);
+    showToast("success", data.message, "");
 
     if (data.success) {
       await fetchRooms();

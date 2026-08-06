@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function RoomFormModal({
   setShowModal,
@@ -16,6 +17,7 @@ function RoomFormModal({
   });
 
   const isEditMode = selectedRoom !== null;
+  const { showToast } = useToast();
 
   useEffect(() => {
     if (selectedRoom) {
@@ -54,12 +56,12 @@ function RoomFormModal({
     const data = await response.json();
 
     if (data.success) {
-      alert(data.message);
+      showToast("success", data.message, "");
       await fetchRooms();
       setSelectedRoom(null);
       setShowModal(false);
     } else {
-      alert(data.message);
+      showToast("error", data.message, "");
     }
   }
 

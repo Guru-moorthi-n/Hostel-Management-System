@@ -5,10 +5,12 @@ import { useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import API from "../../config/api";
 import Footer from "../Footer";
+import { useToast } from "../ToastContext";
 
 function AdminLayout() {
   const navigate = useNavigate();
   const timer = useRef(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     async function setupAutoLogout() {
@@ -42,7 +44,8 @@ function AdminLayout() {
       }
 
       function logout() {
-        alert("Session expired due to inactivity.");
+        showToast("error", "Session expired due to inactivity.", "");
+        
         localStorage.clear();
         document.documentElement.setAttribute("data-theme", "light");
         navigate("/");

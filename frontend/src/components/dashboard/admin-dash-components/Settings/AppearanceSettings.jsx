@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { FaPalette, FaSun, FaMoon } from "react-icons/fa";
+import { useToast } from "../../../ToastContext";
 
 function AppearanceSettings() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { showToast } = useToast();
 
   const [originalTheme, setOriginalTheme] = useState(
     localStorage.getItem("theme") || "light",
@@ -21,7 +23,7 @@ function AppearanceSettings() {
 
   function saveTheme() {
     if (theme === originalTheme) {
-      alert("No changes detected.");
+      showToast("error", "No changes detected.", "");
       setShowSaveButton(false);
       return;
     }
@@ -30,7 +32,7 @@ function AppearanceSettings() {
 
     setOriginalTheme(theme);
     setShowSaveButton(false);
-    alert("Theme updated successfully.");
+    showToast("success", "Theme updated successfully.", "");
     window.location.reload();
   }
 

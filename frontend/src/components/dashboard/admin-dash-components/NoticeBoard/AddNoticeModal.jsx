@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./notice.css";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function AddNoticeModal({ onClose, refresh, editNotice = null }) {
   const [form, setForm] = useState({
@@ -9,6 +10,7 @@ function AddNoticeModal({ onClose, refresh, editNotice = null }) {
     type: "Announcement",
     is_pinned: false,
   });
+  const { showToast } = useToast();
 
   useEffect(() => {
     if (editNotice) {
@@ -34,7 +36,7 @@ function AddNoticeModal({ onClose, refresh, editNotice = null }) {
     e.preventDefault();
 
     if (form.title.trim() === "" || form.description.trim() === "") {
-      alert("Please fill all required fields.");
+      showToast("error", "Please fill all required fields.", "");
       return;
     }
 
@@ -63,7 +65,7 @@ function AddNoticeModal({ onClose, refresh, editNotice = null }) {
         refresh();
         onClose();
       } else {
-        alert(data.message);
+        showToast("error", data.message, "");
       }
     } catch (err) {
       console.log(err);

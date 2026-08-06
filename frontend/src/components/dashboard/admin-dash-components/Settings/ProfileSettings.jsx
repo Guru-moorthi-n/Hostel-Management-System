@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function ProfileSettings() {
   const [profile, setProfile] = useState({
@@ -14,6 +15,7 @@ function ProfileSettings() {
   });
   const [showSaveButton, setShowSaveButton] = useState(false);
   const [originalProfile, setOriginalProfile] = useState(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     loadProfile();
@@ -52,8 +54,7 @@ function ProfileSettings() {
 
   async function changePassword() {
     if (profile.newPassword !== profile.confirmPassword) {
-      alert("Passwords do not match.");
-
+      showToast("error", "Passwords do not match.", "");
       return;
     }
 
@@ -75,7 +76,7 @@ function ProfileSettings() {
 
     const data = await response.json();
 
-    alert(data.message);
+    showToast("success", data.message, "");
   }
 
   async function saveProfile() {
@@ -86,7 +87,7 @@ function ProfileSettings() {
       profile.email === originalProfile.email &&
       profile.phone === originalProfile.phone
     ) {
-      alert("No changes detected.");
+      showToast("error", "No changes detected.", "");
       setShowSaveButton(false);
       return;
     }
@@ -108,7 +109,7 @@ function ProfileSettings() {
 
     const data = await response.json();
 
-    alert(data.message);
+    showToast("success", data.message, "");
 
     if (data.success) {
       setShowSaveButton(false);

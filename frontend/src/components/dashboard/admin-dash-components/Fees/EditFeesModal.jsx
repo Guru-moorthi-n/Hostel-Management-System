@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./EditFeesModal.css";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function EditFeesModal({
   student,
@@ -8,6 +9,7 @@ function EditFeesModal({
   onSuccess,
 }) {
   const [fees, setFees] = useState([]);
+  const { showToast } = useToast();
 
   useEffect(() => {
     loadFees();
@@ -69,7 +71,7 @@ function EditFeesModal({
     if (data.success) {
       onSuccess();
     } else {
-      alert(data.message);
+      showToast("error", data.message, "");
     }
   }
 

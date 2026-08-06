@@ -1,6 +1,7 @@
 import { FaShieldAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function SecuritySettings() {
   const [settings, setSettings] = useState({
@@ -10,6 +11,7 @@ function SecuritySettings() {
 
   const [originalSettings, setOriginalSettings] = useState(null);
   const [showSaveButton, setShowSaveButton] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
     loadSettings();
@@ -51,7 +53,7 @@ function SecuritySettings() {
       settings.auto_logout === originalSettings.auto_logout &&
       settings.session_timeout === originalSettings.session_timeout
     ) {
-      alert("No changes detected.");
+      showToast("error", "No changes detected.", "");
       setShowSaveButton(false);
 
       return;
@@ -83,7 +85,7 @@ function SecuritySettings() {
 
     const data = await response.json();
 
-    alert(data.message);
+    showToast("success", data.message, "");
 
     if (data.success) {
       setOriginalSettings(settings);

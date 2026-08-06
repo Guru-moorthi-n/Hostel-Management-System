@@ -1,21 +1,18 @@
 import { useState } from "react";
 import "./ReceivePaymentModal.css";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function ReceivePaymentModal({
   student,
-
   onClose,
-
   onSuccess,
 }) {
   const [amount, setAmount] = useState("");
-
   const [method, setMethod] = useState("Cash");
-
   const [transactionId, setTransactionId] = useState("");
-
   const [remarks, setRemarks] = useState("");
+  const { showToast } = useToast();
 
   async function receivePayment() {
     const response = await fetch(
@@ -30,13 +27,9 @@ function ReceivePaymentModal({
 
         body: JSON.stringify({
           student_id: student.student.id,
-
           amount,
-
           payment_method: method,
-
           transaction_id: transactionId,
-
           remarks,
         }),
       },
@@ -47,7 +40,7 @@ function ReceivePaymentModal({
     if (data.success) {
       onSuccess();
     } else {
-      alert(data.message);
+      showToast("error", data.message, "");
     }
   }
 

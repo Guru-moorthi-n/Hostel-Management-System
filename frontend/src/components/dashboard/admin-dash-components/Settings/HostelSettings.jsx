@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaBuilding } from "react-icons/fa";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function HostelSettings() {
   const [settings, setSettings] = useState({
@@ -13,6 +14,7 @@ function HostelSettings() {
 
   const [originalSettings, setOriginalSettings] = useState(null);
   const [showSaveButton, setShowSaveButton] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
     loadSettings();
@@ -47,8 +49,7 @@ function HostelSettings() {
       settings.phone === originalSettings.phone &&
       settings.email === originalSettings.email
     ) {
-      alert("No changes detected.");
-
+      showToast("error", "No changes detected.", "");
       setShowSaveButton(false);
       return;
     }
@@ -68,7 +69,7 @@ function HostelSettings() {
 
     const data = await response.json();
 
-    alert(data.message);
+    showToast("error", data.message, "");
 
     if (data.success) {
       setOriginalSettings(settings);

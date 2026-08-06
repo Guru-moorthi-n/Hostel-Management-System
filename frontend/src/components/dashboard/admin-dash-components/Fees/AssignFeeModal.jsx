@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./AssignFeeModal.css";
 import API from "../../../../config/api";
+import { useToast } from "../../../ToastContext";
 
 function AssignFeeModal({ students, feeStructure, onClose, onSuccess }) {
   const [studentId, setStudentId] = useState("");
   const [selectedFees, setSelectedFees] = useState([]);
   const [dueDate, setDueDate] = useState("");
   const [remarks, setRemarks] = useState("");
+  const { showToast } = useToast();
 
   function toggleFee(id) {
     if (selectedFees.includes(id)) {
@@ -18,7 +20,7 @@ function AssignFeeModal({ students, feeStructure, onClose, onSuccess }) {
 
   async function assignFees() {
     if (!studentId || selectedFees.length === 0) {
-      alert("Select student and fees.");
+      showToast("error", "Select student and fees.", "")
       return;
     }
 
@@ -45,7 +47,7 @@ function AssignFeeModal({ students, feeStructure, onClose, onSuccess }) {
     if (data.success) {
       onSuccess();
     } else {
-      alert(data.message);
+      showToast("error", data.message, "");
     }
   }
 
