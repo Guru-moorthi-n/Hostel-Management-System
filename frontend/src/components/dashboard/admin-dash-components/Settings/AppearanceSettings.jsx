@@ -33,7 +33,6 @@ function AppearanceSettings() {
     setOriginalTheme(theme);
     setShowSaveButton(false);
     showToast("success", "Theme updated successfully.", "");
-    window.location.reload();
   }
 
   return (

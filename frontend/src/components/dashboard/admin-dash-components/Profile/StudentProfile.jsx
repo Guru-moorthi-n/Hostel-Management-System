@@ -129,8 +129,19 @@ function StudentProfile() {
       }
 
       showToast("success", "Student saved successfully", "");
-      window.location.reload();
-      setOriginalData(studentData);
+      const refresh = await fetch(`${API}/api/student/${id}`);
+      const result = await refresh.json();
+
+      if (result.success) {
+        const formattedData = {
+          ...result.student,
+          dob: result.student.dob ? result.student.dob.split("T")[0] : "",
+        };
+
+        setStudentData(formattedData);
+        setOriginalData(formattedData);
+      }
+
       setEditMode(false);
     } catch (error) {
       console.log(error);

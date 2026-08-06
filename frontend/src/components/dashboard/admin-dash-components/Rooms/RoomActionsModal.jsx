@@ -42,9 +42,9 @@ function RoomActionsModal({
 
               setShowModal(false);
 
-              setTimeout(() => {
-                window.location.reload();
-              }, 1200);
+              const onRoomUpdated = async () => {
+                await fetchRooms();
+              };
             } else {
               showToast("error", "Update Failed", "");
             }
